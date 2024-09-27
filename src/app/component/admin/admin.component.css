@@ -1,0 +1,162 @@
+/* Container styles */
+.container {
+  margin-top: 20px;
+}
+
+/* Form styles */
+.movie-form, .theater-form {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  color: #333;
+}
+
+.movie-form h2, .theater-form h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Card styles */
+.card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.card-header {
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Adjust the card image size */
+.card-img-top {
+  max-height: 200px; /* Set max height for images */
+  max-width: 100%; /* Ensure the image covers the width */
+  object-fit: contain; /* Ensure the whole image is visible */
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.card-body {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.card-text {
+  color: #666;
+}
+
+/* Input styles */
+.form-group label {
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.form-control {
+  font-size: 16px;
+  color: #555;
+  border-color: #ccc;
+  border-width: 2px;
+  border-radius: 5px;
+}
+
+/* Animation styles */
+.btn-animated {
+  background-color: #ff6f61;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-animated::before {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  width: 60px;
+  height: 120px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+.btn-animated:hover {
+  background-color: #ff8b80;
+}
+
+/* Validation feedback */
+.invalid-feedback {
+  font-size: 14px;
+  color: #dc3545;
+}
+
+/* Scrollbar styles */
+.overflow-auto {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+/* For Chrome, Safari, and Opera */
+.overflow-auto::-webkit-scrollbar {
+  width: 8px;
+}
+
+.overflow-auto::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+/* For Firefox */
+.overflow-auto {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.3) rgba(255, 255, 255, 0.15);
+}
+
+/* Adjustments for better appearance */
+.overflow-auto::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+}

@@ -1,0 +1,101 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="text-primary">Add Movie</h2>
+      <form [formGroup]="movieForm" (ngSubmit)="onSubmitMovie()" class="movie-form p-3 border rounded shadow-sm">
+        <div class="form-group mb-3">
+          <label for="movieName">Movie Name</label>
+          <input id="movieName" formControlName="movieName" class="form-control" />
+          <div *ngIf="movieForm.get('movieName')?.invalid && (movieForm.get('movieName')?.dirty || movieForm.get('movieName')?.touched)" class="text-danger">
+            <div *ngIf="movieForm.get('movieName')?.errors?.['required']">Movie Name is required.</div>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="moviePoster">Movie Poster URL</label>
+          <input id="moviePoster" formControlName="moviePoster" class="form-control" />
+          <div *ngIf="movieForm.get('moviePoster')?.invalid && (movieForm.get('moviePoster')?.dirty || movieForm.get('moviePoster')?.touched)" class="text-danger">
+            <div *ngIf="movieForm.get('moviePoster')?.errors?.['require']">Movie Poster is required.</div>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="genre">Genre</label>
+          <input id="genre" formControlName="genre" class="form-control" />
+          <div *ngIf="movieForm.get('genre')?.invalid && (movieForm.get('genre')?.dirty || movieForm.get('genre')?.touched)" class="text-danger">
+            <div *ngIf="movieForm.get('genre')?.errors?.['require']">Genre is required.</div>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="description">Description</label>
+          <textarea id="description" formControlName="description" class="form-control"></textarea>
+          <div *ngIf="movieForm.get('description')?.invalid && (movieForm.get('description')?.dirty || movieForm.get('description')?.touched)" class="text-danger">
+            <div *ngIf="movieForm.get('description')?.errors?.['require']">Description is required.</div>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="languages">Languages</label>
+          <input id="languages" formControlName="languages" class="form-control" />
+          <div *ngIf="movieForm.get('languages')?.invalid && (movieForm.get('languages')?.dirty || movieForm.get('languages')?.touched)" class="text-danger">
+            <div *ngIf="movieForm.get('languages')?.errors?.['require']">Language is required.</div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-animated w-100">Add Movie</button>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <h2 class="text-primary">Movies</h2>
+      <div class="overflow-auto" style="max-height: 500px;">
+        <div class="row">
+          <div class="col-md-12" *ngFor="let movie of movies">
+            <div class="card mb-3 shadow-sm">
+              <img [src]="movie.moviePoster" class="card-img-top" alt="Movie Poster">
+              <div class="card-body">
+                <h5 class="card-title">{{ movie.movieName }}</h5>
+                <p class="card-text"><strong>Genre:</strong> {{ movie.genre }}</p>
+                <p class="card-text"><strong>Languages:</strong> {{ movie.languages }}</p>
+                <p class="card-text">{{ movie.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <h2 class="text-primary">Add Theater</h2>
+      <form [formGroup]="theaterForm" (ngSubmit)="onSubmitTheater()" class="theater-form p-3 border rounded shadow-sm">
+        <div class="form-group mb-3">
+          <label for="theaterName">Theater Name</label>
+          <input id="theaterName" formControlName="theaterName" class="form-control" />
+          <div *ngIf="theaterForm.get('theaterName')?.invalid && (theaterForm.get('theaterName')?.dirty || theaterForm.get('theaterName')?.touched)" class="text-danger">
+            <div *ngIf="theaterForm.get('theaterName')?.errors?.['required']">Theater Name is required.</div>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="city">City</label>
+          <input id="city" formControlName="city" class="form-control" />
+          <div *ngIf="theaterForm.get('city')?.invalid && (theaterForm.get('city')?.dirty || theaterForm.get('city')?.touched)" class="text-danger">
+            <div *ngIf="theaterForm.get('city')?.errors?.['required']">City is required.</div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-animated w-100">Add Theater</button>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <h2 class="text-primary">Theaters</h2>
+      <div class="overflow-auto" style="max-height: 500px;">
+        <div class="row">
+          <div class="col-md-12" *ngFor="let theater of theaters">
+            <div class="card mb-3 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">{{ theater.theaterName }}</h5>
+                <p class="card-text"><strong>City:</strong> {{ theater.city }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
